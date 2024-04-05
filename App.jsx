@@ -6,19 +6,17 @@
  */
 
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+
+import Layout from './src/Layout';
+import {AuthProvider} from './src/contexts/AuthContext';
 
 export default function App() {
   return (
-    <SafeAreaView>
-      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={{backgroundColor: '#fff'}}>
-        <View>
-          <Text>Completed</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <AuthProvider>
+      <NavigationContainer>
+        <Layout />
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
